@@ -1,11 +1,26 @@
 <h1>Tasks</h1>
+
+
+ <%= link_to(new_path) do %>
+ <button>Add new task</button>
+ <%end  %>
+
+<hr>
 <% @tasks.each do |task| %>
-  <p> <%= check_box_tag task.title,"value", task.completed %>
-  <%= link_to(task.title, task_path(task)) %></p>
-  <%= link_to "Delete", task_path(task),
+  <p class="show"> <%= check_box_tag task.title,"value", task.completed %>
+  <%= link_to(task.title, task_path(task)) %>
+  <%= button_to "Delete", task_path(task),
   method: :delete,
-  data: { confirm: "Are you sure?" } %>
+  data: { confirm: "Are you sure?" } %></p>
+  <hr>
+  <br>
 <% end  %>
+
+
+
+
+
+
 
 
 
